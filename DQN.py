@@ -1,8 +1,10 @@
 import numpy as np
-import tensorflow as tf
-
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 np.random.seed(1)
-tf.set_random_seed(1)
+
+# tf.random.set_seed(1)  # tf V2.0
 
 
 # TODO(hang): improve DQN with double, prioritised replay, dueling network

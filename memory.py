@@ -5,12 +5,13 @@ import numpy as np
 
 class Memory:
     def __init__(self, capacity):
-        self.data = deque(maxlen=capacity)
-        self.pointer = 0
+        self.data = deque(maxlen=capacity)      # 双向队列 capacity传入的是指定的Memory_Size
+        self.pointer = 0        # 记录新添加的内容的位置
 
     def remember(self, state, action, reward, state_next, done):
+        # 在记忆库中进行右侧添加
         experience = (state, action, reward, state_next, done)
-        self.data.append(experience)
+        self.data.append(experience)     # 右侧添加
         if self.pointer < len(self.data):
             self.pointer += 1
 
